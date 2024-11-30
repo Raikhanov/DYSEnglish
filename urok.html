@@ -1,0 +1,2685 @@
+<?php
+session_start();
+$connect=mysql_connect('localhost','root','')or die("net");
+$sait=mysql_select_db(sait)or die("Net soidenenia");
+   ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- АУДИО -->
+<script type="text/javascript">
+	var boy1 = new Audio();
+	boy1.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/ff3c17e719ca0aa0855961544291f5d9";
+    
+    var woman1 = new Audio();
+	woman1.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/b9e77745dfa724bf524cc4326c5aaea0";
+
+	var apple1 = new Audio();
+	apple1.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/cb5d20bbc6b612b688f2eebf53e70ea8";
+	var man1 = new Audio();
+	man1.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/3b7fc043fde0344cf2ed04fa5050ce8a";
+	var girl1 = new Audio();
+	girl1.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/c7e33d41e00065e81d0d231d5447f6cb";
+	var i_m_a_boy = new Audio();
+	i_m_a_boy.src = "https://d7mj4aqfscim2.cloudfront.net/tts/en/salli/sentence/776a563f1bb1a3fa54e08624a30d3e4c";
+	var u=0;
+	
+
+</script>
+<!-- АУДИО -->
+
+	<meta charset="UTF-8">
+	<title>1 Бөлім сабақ</title>
+	<style type="text/css">
+	*{margin:0;
+          padding: 0;}
+          body{
+          	background: #f0f0f0;
+          }
+
+a{text-decoration: none;
+	color:white;
+	font-size: 20px;
+}
+
+/*---------------БАРИНЕ ОРТАК БЕТТИН КОЛЕМИ--------------------*/
+	.page{
+		margin-top: 25px;
+		/*margin-left: 375px;*/
+		/*border: 1px solid red;*/}
+	.page p{
+		margin-left: 360px;
+		/*margin-bottom: 65px;*/
+		font-weight: bold;
+		font-size: 35px;
+		font-family: arial;}
+
+/*---------------БАРИНЕ ОРТАК БЕТТИН КОЛЕМИ--------------------*/
+
+
+
+
+/*----------------БИРИНШИ БЕТ----------------------------------*/
+#boy{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	margin-left: 350px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#boy img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#boy:hover{
+
+			border: 2px solid #38a9f6;
+		}
+		#otp{
+			width: 150px;
+			height: 45px;
+			background: #c0c0c0;
+			border-radius: 40px;
+			margin-top: -80px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+			
+		}
+#woman{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#woman img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#woman:hover{
+
+			border: 2px solid #38a9f6;
+		}
+#apple{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#apple img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#apple:hover{
+
+			border: 2px solid #38a9f6;
+		}		
+
+.radio {
+	vertical-align: top;
+	width: 17px;
+	height: 17px;
+	margin: 0 3px 0 0;
+}
+.radio + label {
+	cursor: pointer;
+}
+.radio:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+.radio:not(checked) + label {
+	position: relative;
+	padding: 0 0 0 35px;
+}
+.radio:not(checked) + label:before {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #f0f0f0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	
+	transition: all .2s;
+}
+.radio:checked + label:after {
+	background: #38a9f6;
+}
+
+.radio:focus + label:before {
+	box-shadow: 0 0 0 2px #38a9f6;
+}
+
+#otvet{
+	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 358px;
+}
+#duris1{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris1 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris1 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes1{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes1 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes1 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*----------------БИРИНШИ БЕТ----------------------------------*/
+
+
+
+
+
+/*----------------ЕКИНШИ БЕТ----------------------------------*/
+#radio_2_1{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	margin-left: 350px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_2_1 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_2_1:hover{
+
+			border: 2px solid #38a9f6;
+		}
+		#otp_2{
+			width: 150px;
+			height: 45px;
+			background: #c0c0c0;
+			border-radius: 40px;
+			margin-top: -80px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+			
+		}
+#radio_2_2{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_2_2 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_2_2:hover{
+
+			border: 2px solid #38a9f6;
+		}
+#radio_2_3{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_2_3 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_2_3:hover{
+
+			border: 2px solid #38a9f6;
+		}		
+
+.radio_2 {
+	vertical-align: top;
+	width: 17px;
+	height: 17px;
+	margin: 0 3px 0 0;
+}
+.radio_2 + label {
+	cursor: pointer;
+}
+.radio_2:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+.radio_2:not(checked) + label {
+	position: relative;
+	padding: 0 0 0 35px;
+}
+.radio_2:not(checked) + label:before {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio_2:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #f0f0f0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	
+	transition: all .2s;
+}
+.radio_2:checked + label:after {
+	background: #38a9f6;
+}
+
+.radio_2:focus + label:before {
+	box-shadow: 0 0 0 2px #38a9f6;
+}
+
+#otvet_2{
+	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 358px;
+}
+#duris_2{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_2 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_2 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_2{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_2 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_2 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}	
+/*----------------ЕКИНШИ БЕТ----------------------------------*/
+
+
+
+
+
+/*--------------УШИНШИ БЕТ----------------------------------*/
+#radio_3_1{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	margin-left: 350px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_3_1 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_3_1:hover{
+
+			border: 2px solid #38a9f6;
+		}
+		#otp_3{
+			width: 150px;
+			height: 45px;
+			background: #c0c0c0;
+			border-radius: 40px;
+			margin-top: -80px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+			
+		}
+#radio_3_2{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+   margin-top: 65px;
+}
+		#radio_3_2 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_3_2:hover{
+
+			border: 2px solid #38a9f6;
+		}
+#radio_3_3{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_3_3 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_3_3:hover{
+
+			border: 2px solid #38a9f6;
+		}		
+
+.radio_3 {
+	vertical-align: top;
+	width: 17px;
+	height: 17px;
+	margin: 0 3px 0 0;
+}
+.radio_3 + label {
+	cursor: pointer;
+}
+.radio_3:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+.radio_3:not(checked) + label {
+	position: relative;
+	padding: 0 0 0 35px;
+}
+.radio_3:not(checked) + label:before {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio_3:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #f0f0f0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	
+	transition: all .2s;
+}
+.radio_3:checked + label:after {
+	background: #38a9f6;
+}
+
+.radio_3:focus + label:before {
+	box-shadow: 0 0 0 2px #38a9f6;
+}
+
+#otvet_3{
+	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 358px;
+}
+#duris_3{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_3 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_3 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_3{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_3 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_3 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*--------------УШИНШИ БЕТ----------------------------------*/
+
+
+
+
+
+
+/*-------------ТОРТИНШИ БЕТ БЕТ----------------------------------*/
+#radio_4_1{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	margin-left: 350px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_4_1 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_4_1:hover{
+
+			border: 2px solid #38a9f6;
+		}
+		#otp_4{
+			width: 150px;
+			height: 45px;
+			background: #c0c0c0;
+			border-radius: 40px;
+			margin-top: -80px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+			
+		}
+#radio_4_2{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_4_2 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_4_2:hover{
+
+			border: 2px solid #38a9f6;
+		}
+#radio_4_3{
+	width: 190px;
+	height: 220px;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+	float: left;
+	margin-right: 20px;
+	padding-left: 13px;
+	margin-top: 65px;
+
+}
+		#radio_4_3 img{
+			margin-top: 13px;
+			/*margin-left:  13px;*/
+			width: 175px;
+			height: 160px;
+			cursor: pointer;
+			padding-bottom: 10px;
+		}
+
+		
+		#radio_4_3:hover{
+
+			border: 2px solid #38a9f6;
+		}		
+
+.radio_4 {
+	vertical-align: top;
+	width: 17px;
+	height: 17px;
+	margin: 0 3px 0 0;
+}
+.radio_4 + label {
+	cursor: pointer;
+}
+.radio_4:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+.radio_4:not(checked) + label {
+	position: relative;
+	padding: 0 0 0 35px;
+}
+.radio_4:not(checked) + label:before {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio_4:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #f0f0f0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	
+	transition: all .2s;
+}
+.radio_4:checked + label:after {
+	background: #38a9f6;
+}
+
+.radio_4:focus + label:before {
+	box-shadow: 0 0 0 2px #38a9f6;
+}
+
+#otvet_4{
+	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 358px;
+}
+#duris_4{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_4 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_4 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_4{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_4 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_4 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------ТОРТИНШИ БЕТ----------------------------------*/
+
+
+
+/*-------------БЕСИНШИ БЕТ----------------------------------*/
+
+.text1{
+	margin-left: 355px;
+	margin-top: 20px;
+}
+
+		#text{
+			resize: none;
+			width: 550px;
+			height: 150px;
+			border-radius: 10px;
+			 outline: none;
+			 font-size: 25px;
+			 padding-left: 20px;
+			 padding-top: 10px;
+			 border: 2px solid #dadada;
+			 
+		}
+		#text::-webkit-input-placeholder {
+    color: #999999;
+   }
+
+   .zvuk-soz{
+   	margin-left: 355px;
+   	margin-top: 45px;
+   	height: 43px;
+   }
+.zvuk{
+	width: 45px;
+	height: 45px;
+	background: #1caff6;
+	border-radius: 50%;
+	cursor: pointer;
+	float: left;
+}
+.zvuk img{
+	margin-top: 8px;
+	margin-left: 6px;
+	width: 30px;
+	height: 30px;
+}
+.soz{
+	padding-top: 10px;
+	margin-left: 60px;
+}
+.zvuk-soz span{
+	font-family: arial;
+   	font-size: 20px;
+
+}
+
+   #otvet_5{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 98px;
+   }
+   
+   #otp_5{
+   	width: 150px;
+			height: 45px;
+			background: #65ab00;
+			border-radius: 40px;
+			margin-top:20px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+   }
+   #duris_5{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_5 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_5 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_5{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_5 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_5 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------БЕСИНШИ БЕТ----------------------------------*/
+
+
+
+
+/*-------------АЛТЫНШЫ БЕТ----------------------------------*/
+
+.text1_1{
+	margin-left: 355px;
+	margin-top: 20px;
+}
+
+		#text_1{
+			resize: none;
+			width: 550px;
+			height: 150px;
+			border-radius: 10px;
+			 outline: none;
+			 font-size: 25px;
+			 padding-left: 20px;
+			 padding-top: 10px;
+			 border: 2px solid #dadada;
+			 
+		}
+		#text_1::-webkit-input-placeholder {
+    color: #999999;
+   }
+
+   .zvuk-soz_1{
+   	margin-left: 355px;
+   	margin-top: 45px;
+   	height: 43px;
+   }
+.zvuk_1{
+	width: 45px;
+	height: 45px;
+	background: #1caff6;
+	border-radius: 50%;
+	cursor: pointer;
+	float: left;
+}
+.zvuk_1 img{
+	margin-top: 8px;
+	margin-left: 6px;
+	width: 30px;
+	height: 30px;
+}
+.soz_1{
+	padding-top: 10px;
+	margin-left: 60px;
+}
+.zvuk-soz_1 span{
+	font-family: arial;
+   	font-size: 20px;
+
+}
+
+   #otvet_6{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 98px;
+   }
+   
+   #otp_6{
+   	width: 150px;
+			height: 45px;
+			background: #65ab00;
+			border-radius: 40px;
+			margin-top:20px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+   }
+   #duris_6{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_6 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_6 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_6{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_6 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_6 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------АЛТЫНШЫ БЕТ----------------------------------*/
+
+
+
+
+/*-------------ЖЕТИНШИ БЕТ----------------------------------*/
+#text_2{
+			resize: none;
+			width: 380px;
+			height: 45px;
+			border-radius: 10px;
+			 outline: none;
+			 font-size: 25px;
+			 padding-left: 20px;
+			 padding-top: 10px;
+			 border: 2px solid #dadada;
+			 
+		}
+		#text_2::-webkit-input-placeholder {
+    color: #999999;
+   }
+
+   .zvuk-soz_2{
+   	margin-left: 355px;
+   	margin-top: 80px;
+   	height: 43px;
+   }
+.zvuk_2{
+	width: 180px;
+	height: 180px;
+	background: white;
+	margin-right: 20px;
+	cursor: pointer;
+	float: left;
+}
+.zvuk_2 img{
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 170px;
+	height: 170px;
+}
+.soz_2{
+	padding-top: 50px;
+	margin-left: 80px;
+}
+.zvuk-soz_1 span{
+	font-family: arial;
+   	font-size: 20px;
+
+}
+
+   #otvet_7{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 250px;
+   }
+   
+   #otp_7{
+   	width: 150px;
+			height: 45px;
+			background: #65ab00;
+			border-radius: 40px;
+			margin-top:20px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+   }
+   #duris_7{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_7 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_7 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_7{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_7 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_7 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------ЖЕТИНШИ БЕТ----------------------------------*/
+
+
+
+
+
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+#text_3{
+			resize: none;
+			width: 380px;
+			height: 45px;
+			border-radius: 10px;
+			 outline: none;
+			 font-size: 25px;
+			 padding-left: 20px;
+			 padding-top: 10px;
+			 border: 2px solid #dadada;
+			 
+		}
+		#text_3::-webkit-input-placeholder {
+    color: #999999;
+   }
+
+   .zvuk-soz_3{
+   	margin-left: 355px;
+   	margin-top: 80px;
+   	height: 43px;
+   }
+.zvuk_3{
+	width: 180px;
+	height: 180px;
+	background: white;
+	margin-right: 20px;
+	cursor: pointer;
+	float: left;
+}
+.zvuk_3 img{
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 170px;
+	height: 170px;
+}
+.soz_3{
+	padding-top: 50px;
+	margin-left: 80px;
+}
+
+
+   #otvet_8{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 250px;
+   }
+   
+   #otp_8{
+   	width: 150px;
+			height: 45px;
+			background: #65ab00;
+			border-radius: 40px;
+			margin-top:20px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+   }
+     
+   #duris_8{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_8 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_8 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_8{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_8 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_8 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+
+
+   
+
+   #otvet_9{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 125px;
+   }
+   
+  
+    
+   #duris_9{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_9 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_9 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_9{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_9 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_9 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+
+
+   
+
+   #otvet_10{
+   	width: 100%;
+	height:120px;
+	background: #e7e7e7;
+	margin-top: 125px;
+   }
+   
+   #otp_9{
+   	width: 150px;
+			height: 45px;
+			background: #65ab00;
+			border-radius: 40px;
+			margin-top:20px;
+			margin-right: 70px;
+			float: right;
+			color: white;
+			font-size: 20px;
+			border:none;
+            outline: none;
+            opacity: 0;
+   }
+    
+   #duris_10{
+	width: 300px;
+    height: 120px;
+	float: left;
+	margin-left: 100px;
+	opacity: 0;
+}
+#duris_10 img{
+	float: left;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#duris_10 li{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 45px;
+	color: #65ab00;
+	margin-top: 45px;
+	list-style: none;
+}
+#duris-emes_10{
+	margin-left: 450px;
+	width: 300px;
+	height: 120px;
+	opacity: 0;
+}
+#duris-emes_10 img{
+margin-top: 15px;	
+float: left;
+margin-right: 20px;
+}
+#duris-emes_10 li{
+font-weight: bold;
+	font-family: arial;
+	font-size: 25px;
+	color: #ed4700;
+	margin-top: 5px;
+	list-style: none;	
+	margin-top: 10px;
+
+}
+/*-------------СЕГИЗИНШИ БЕТ----------------------------------*/
+
+
+/*-------------СЛАЙДЕР----------------------------------*/
+
+.inner{width:1000%;}
+.inner:after{
+	content:'';
+	display:block;
+	height:0;
+    clear:both;
+}
+.page{float:left;width:10%;}
+/*.page img {width:100%;height:500px;}*/
+
+#overflow{overflow:hidden;}
+#slider input{display:none;}
+#controls{position:absolute;
+width:100%;
+top:150px;
+left:0;
+height:50px;
+}
+/*#controls label{
+	display:none;
+	opacity:0.3;
+	cursor:pointer;
+}*/
+#controls label{opacity:0.8;}
+
+#slide1:checked ~ #controls label:nth-child(2),     /*  стелка онга */
+#slide2:checked ~ #controls label:nth-child(3),  
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(5),
+#slide5:checked ~ #controls label:nth-child(6),
+#slide6:checked ~ #controls label:nth-child(7),
+#slide7:checked ~ #controls label:nth-child(8),
+#slide8:checked ~ #controls label:nth-child(9),
+#slide9:checked ~ #controls label:nth-child(10){
+
+	width:0;
+	height:0;
+	border-top:50px solid transparent;
+	border-left:50px solid #333;
+	border-bottom:50px solid transparent;
+	float:right;
+	margin-right: 10px;
+	margin-top: 403px;
+	display:block;
+	cursor: pointer;
+}
+
+#slide1:checked ~ #slides .inner{margin-left:0;}    /*суретти жургизу*/
+#slide2:checked ~ #slides .inner{margin-left:-100%;}
+#slide3:checked ~ #slides .inner{margin-left:-200%;}
+#slide4:checked ~ #slides .inner{margin-left:-300%;}
+#slide5:checked ~ #slides .inner{margin-left:-400%;}
+#slide6:checked ~ #slides .inner{margin-left:-500%;}
+#slide7:checked ~ #slides .inner{margin-left:-600%;}
+#slide8:checked ~ #slides .inner{margin-left:-700%;}
+#slide9:checked ~ #slides .inner{margin-left:-800%;}
+#slide10:checked ~ #slides .inner{margin-left:-900%;}
+
+
+#active{text-align:center;margin-top:10px;}
+#active label{width:15px;
+height:10px;
+background:#ccc;
+display:inline-block;
+cursor:pointer;
+-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+}
+
+
+#slides .inner{
+	         
+           /* transition: all 0.8s ease-in-out;*/
+}
+
+/*-------------СЛАЙДЕР----------------------------------*/
+/*---------ДУРЫС ЖАУАПТАР ЖОГАРЫДАГЫ ИНДЕКАТОР----------------------------------*/
+.prov{
+height: 99px;
+}
+#prov1{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	margin-left: 80px;
+	border: 2px solid #dadada;
+
+}
+#prov2{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov3{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov4{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov5{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov6{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov7{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov8{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov9{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+#prov10{
+	background: #f0f0f0;
+	height: 15px;
+	width: 100px;
+	float: left;
+	border-radius: 70px;
+	margin-right: 20px;
+	margin-top: 40px;
+	border: 2px solid #dadada;
+}
+
+/*---------ДУРЫС ЖАУАПТАР ЖОГАРЫДАГЫ ИНДЕКАТОР----------------------------------*/
+
+	</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+<!-- ДУРЫС ЖАУАТАР ЖОГАРЫДАГЫ ИНДЕКАТОР -->
+<div class="prov">
+<div id="prov1"></div>
+<div id="prov2"></div>
+<div id="prov3"></div>
+<div id="prov4"></div>
+<div id="prov5"></div>
+<div id="prov6"></div>
+<div id="prov7"></div>
+<div id="prov8"></div>
+<div id="prov9"></div>
+<div id="prov10"></div>
+</div>
+<!-- ДУРЫС ЖАУАТАР ЖОГАРЫДАГЫ ИНДЕКАТОР -->
+
+
+<div id="slider">
+<input type="radio" name="slider" id="slide1" checked="">
+<input type="radio" name="slider" id="slide2"> 
+<input type="radio" name="slider" id="slide3">
+<input type="radio" name="slider" id="slide4">
+<input type="radio" name="slider" id="slide5"> 
+<input type="radio" name="slider" id="slide6"> 
+<input type="radio" name="slider" id="slide7"> 
+<input type="radio" name="slider" id="slide8"> 
+<input type="radio" name="slider" id="slide9"> 
+<input type="radio" name="slider" id="slide10"> 
+
+ <div id="slides"> 
+ <div id="overflow">
+ <div class="inner">
+
+
+<!-- -----------------БИРИНШИ БЕТ-------------------- -->
+ <div class="page">
+<p> "Ұл" сөзін таңдаңыз</p>
+  
+  <label id="boy" onmousedown="boy1.play()" >
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/3db3eeaf37c7f8e0d80efa94773e3e78">
+     <input type="radio" class="radio" id="radio-1" name="radio" value="boy" />
+		<label for="radio-1">a boy</label>
+  </label>
+
+<label id="woman" onmousedown="woman1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/c7264e00ae0136f40d0c026e190ea9cd">
+     <input type="radio" class="radio" id="radio-2" name="radio" value="woman" />
+		<label for="radio-2">a woman</label>
+  </label>
+
+<label id="apple" onmousedown="apple1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/4fa5cd3c53db128b9c05568ccf94e027">
+     <input type="radio" class="radio" id="radio-3" name="radio" value="apple" />
+		<label for="radio-3">an apple</label>
+  </label>
+
+
+
+<!-- КНОПКИ RADIOBUTTON -->
+<br>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+<div id="otvet">
+
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+<div id="duris1">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes1">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a boy</li></ul>
+
+</div>
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+
+<!-- КНОПКА BUTTON -->
+<button id="otp" >Тексеру</button>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+<script type="text/javascript">
+    var otvet=document.getElementById('otvet');
+    var boy=document.getElementById('boy');
+    var woman=document.getElementById('woman');
+    var apple=document.getElementById('apple');
+	
+
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+	document.getElementById('otp').onclick=chekradio;
+	function chekradio() {
+	var m =document.getElementsByName('radio');
+	for(var i=0; i<m.length;i++){
+
+		if(m[0].checked){       //ЕСЛИ ПРАВИЛЬНЫЙ ОТВЕТ
+			otvet.style.background="#bff199";
+			document.getElementById('otp').style.opacity="0";
+			document.getElementById('sled2').style.opacity="1";
+			document.getElementById('duris1').style.opacity="1";
+			document.getElementById('prov1').style.background="#bff199";
+			u++;
+            
+			boy.style.background="#bff199";
+			boy.style.border="2px solid #65ab00";
+			woman.style.background="#ffd3d1";
+		    woman.style.border="2px solid #e70800";
+			apple.style.background="#ffd3d1";
+			apple.style.border="2px solid #e70800";
+			break;
+		}
+
+		else {   //ЕСЛИ НЕ ПРАВИЛЬНЫЙ ОТВЕТ   
+			otvet.style.background="#ffd3d1";
+			document.getElementById('otp').style.opacity="0";
+			document.getElementById('duris-emes1').style.opacity="1";
+			document.getElementById('sled2').style.opacity="1";
+			document.getElementById('prov1').style.background="#ffd3d1";
+			boy.style.background="#bff199";
+			boy.style.border="2px solid #65ab00";
+			woman.style.background="#ffd3d1";
+		    woman.style.border="2px solid #e70800";
+			apple.style.background="#ffd3d1";
+			apple.style.border="2px solid #e70800";
+		break;}
+	}}
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+
+/* НАЖАТИЕ НА RADIOBUTTON */	
+	boy.onclick=odin;
+	function odin(){
+		var m =document.getElementsByName('radio');
+	for(var i=0; i<m.length;i++){
+		if(m[0].checked){
+			boy.style.background="#b9e8ff";
+			boy.style.border="2px solid #38a9f6";
+			woman.style.background="white";
+		    woman.style.border="2px solid #dadada";
+			apple.style.background="white";
+			apple.style.border="2px solid #dadada";
+            document.getElementById('otp').style.background="#65ab00";
+			break;
+		}
+	}
+	}	
+
+	
+	woman.onclick=dva;
+	function dva(){
+		var m =document.getElementsByName('radio');
+	for(var i=0; i<m.length;i++){
+		if(m[1].checked){
+			woman.style.background="#b9e8ff";
+			woman.style.border="2px solid #38a9f6";
+			boy.style.background="white";
+			boy.style.border="2px solid #dadada";
+			apple.style.background="white";
+			apple.style.border="2px solid #dadada";
+			document.getElementById('otp').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+
+
+	apple.onclick=tri;
+	function tri(){
+		var m =document.getElementsByName('radio');
+	for(var i=0; i<m.length;i++){
+		if(m[2].checked){
+			apple.style.background="#b9e8ff";
+			apple.style.border="2px solid #38a9f6";
+			woman.style.background="white";
+			 woman.style.border="2px solid #dadada";
+			boy.style.background="white";
+			boy.style.border="2px solid #dadada";
+			document.getElementById('otp').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+/* НАЖАТИЕ НА RADIOBUTTON */
+
+</script>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+</div>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+ </div>
+
+<!-- -----------------БИРИНШИ БЕТ-------------------- -->
+
+
+
+
+
+<!-- -----------------ЕКИНШИ БЕТ-------------------- -->
+<div class="page">
+  <p> "Әйел" сөзін таңдаңыз</p>
+  
+  <label id="radio_2_1" onmousedown="apple1.play()" >
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/8bccc504c410a7bee653438cff643a8d">
+     <input type="radio" class="radio_2" id="radio_2_1_1" name="radio_2" value="boy" />
+		<label for="radio_2_1_1">an apple</label>
+  </label>
+
+<label id="radio_2_2" onmousedown="man1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/af5dfab3daf7a1626450b4074a0b18b6">
+     <input type="radio" class="radio_2" id="radio-2" name="radio_2" value="woman" />
+		<label for="radio-2">a man</label>
+  </label>
+
+<label id="radio_2_3" onmousedown="woman1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/c5457252450d3000b351cbf87f6b0512">
+     <input type="radio" class="radio_2" id="radio-3" name="radio_2" value="apple" />
+		<label for="radio-3">a woman</label>
+  </label>
+
+
+
+<!-- КНОПКИ RADIOBUTTON -->
+<br>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+<div id="otvet_2">
+
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+<div id="duris_2">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_2">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a woman</li></ul>
+
+</div>
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+
+<!-- КНОПКА BUTTON -->
+<button id="otp_2" >Тексеру</button>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+<script type="text/javascript">
+    var otvet_2=document.getElementById('otvet_2');
+    var radio_2_1=document.getElementById('radio_2_1');
+    var radio_2_2=document.getElementById('radio_2_2');
+    var radio_2_3=document.getElementById('radio_2_3');
+
+
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+	document.getElementById('otp_2').onclick=chekradio;
+	function chekradio() {
+	var m =document.getElementsByName('radio_2');
+	for(var i=0; i<m.length;i++){
+
+		if(m[2].checked){       //ЕСЛИ ПРАВИЛЬНЫЙ ОТВЕТ
+			otvet_2.style.background="#bff199";
+			document.getElementById('otp_2').style.opacity="0";
+			document.getElementById('duris_2').style.opacity="1";
+			document.getElementById('prov2').style.background="#bff199";
+			document.getElementById('sled3').style.opacity="1";
+			u++;
+
+			radio_2_1.style.background="#ffd3d1";
+			radio_2_1.style.border="2px solid #e70800";
+			radio_2_2.style.background="#ffd3d1";
+		    radio_2_2.style.border="2px solid #e70800";
+			radio_2_3.style.background="#bff199";
+			radio_2_3.style.border="2px solid #65ab00";
+			break;
+		}
+
+		else {   //ЕСЛИ НЕ ПРАВИЛЬНЫЙ ОТВЕТ   
+			otvet_2.style.background="#ffd3d1";
+			document.getElementById('otp_2').style.opacity="0";
+			document.getElementById('duris-emes_2').style.opacity="1";
+			document.getElementById('prov2').style.background="#ffd3d1";
+			document.getElementById('sled3').style.opacity="1";
+			radio_2_1.style.background="#ffd3d1";
+			radio_2_1.style.border="2px solid #e70800";
+			radio_2_2.style.background="#ffd3d1";
+		    radio_2_2.style.border="2px solid #e70800";
+			radio_2_3.style.background="#bff199";
+			radio_2_3.style.border="2px solid #65ab00";
+		break;}
+	}}
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+
+/* НАЖАТИЕ НА RADIOBUTTON */	
+	radio_2_1.onclick=odin;
+	function odin(){
+		var m =document.getElementsByName('radio_2');
+	for(var i=0; i<m.length;i++){
+		if(m[0].checked){
+			radio_2_1.style.background="#b9e8ff";
+			radio_2_1.style.border="2px solid #38a9f6";
+			radio_2_2.style.background="white";
+		    radio_2_2.style.border="2px solid #dadada";
+			radio_2_3.style.background="white";
+			radio_2_3.style.border="2px solid #dadada";
+            document.getElementById('otp_2').style.background="#65ab00";
+			break;
+		}
+	}
+	}	
+
+	
+	radio_2_2.onclick=dva;
+	function dva(){
+		var m =document.getElementsByName('radio_2');
+	for(var i=0; i<m.length;i++){
+		if(m[1].checked){
+			radio_2_2.style.background="#b9e8ff";
+			radio_2_2.style.border="2px solid #38a9f6";
+			radio_2_1.style.background="white";
+			radio_2_1.style.border="2px solid #dadada";
+			radio_2_3.style.background="white";
+			radio_2_3.style.border="2px solid #dadada";
+			document.getElementById('otp_2').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+
+
+	radio_2_3.onclick=tri;
+	function tri(){
+		var m =document.getElementsByName('radio_2');
+	for(var i=0; i<m.length;i++){
+		if(m[2].checked){
+			radio_2_3.style.background="#b9e8ff";
+			radio_2_3.style.border="2px solid #38a9f6";
+			radio_2_2.style.background="white";
+			 radio_2_2.style.border="2px solid #dadada";
+			radio_2_1.style.background="white";
+			radio_2_1.style.border="2px solid #dadada";
+			document.getElementById('otp_2').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+/* НАЖАТИЕ НА RADIOBUTTON */
+
+</script>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+</div>
+
+ </div>
+
+<!-- -----------------ЕКИНШИ БЕТ-------------------- -->
+
+
+
+<!-- -----------------УШИНШИ БЕТ-------------------- -->
+<div class="page">
+ <p> "Қыз" сөзін таңдаңыз</p>
+  
+  <label id="radio_3_1" onmousedown="man1.play()" >
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/af5dfab3daf7a1626450b4074a0b18b6">
+     <input type="radio" class="radio_3" id="radio_3_1_1" name="radio_3" value="boy" />
+		<label for="radio_3_1_1">a man</label>
+  </label>
+
+<label id="radio_3_2" onmousedown="girl1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/a49d591d0f735e48ae2d42e3a2b28e0d">
+     <input type="radio" class="radio_3" id="radio_3_2_1" name="radio_3" value="woman" />
+		<label for="radio_3_2_1">a girl</label>
+  </label>
+
+<label id="radio_3_3" onmousedown="apple1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/8bccc504c410a7bee653438cff643a8d">
+     <input type="radio" class="radio_3" id="radio_3_3_1" name="radio_3" value="apple" />
+		<label for="radio_3_3_1">an apple</label>
+  </label>
+
+
+
+<!-- КНОПКИ RADIOBUTTON -->
+<br>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+<div id="otvet_3">
+
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+<div id="duris_3">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_3">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a girl</li></ul>
+
+</div>
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+
+<!-- КНОПКА BUTTON -->
+<button id="otp_3"  >Тексеру</button>
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+<script type="text/javascript">
+    var otvet_3=document.getElementById('otvet_3');
+    var radio_3_1=document.getElementById('radio_3_1');
+    var radio_3_2=document.getElementById('radio_3_2');
+    var radio_3_3=document.getElementById('radio_3_3');
+
+
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+	document.getElementById('otp_3').onclick=chekradio;
+	function chekradio() {
+	var m =document.getElementsByName('radio_3');
+	for(var i=0; i<m.length;i++){
+
+		if(m[1].checked){       //ЕСЛИ ПРАВИЛЬНЫЙ ОТВЕТ
+			otvet_3.style.background="#bff199";
+			document.getElementById('otp_3').style.opacity="0";
+			document.getElementById('duris_3').style.opacity="1";
+			document.getElementById('prov3').style.background="#bff199";
+			document.getElementById('sled4').style.opacity="1";
+			u++;
+			radio_3_1.style.background="#ffd3d1";
+			radio_3_1.style.border="2px solid #e70800";
+			radio_3_2.style.background="#bff199";
+		    radio_3_2.style.border="2px solid #65ab00";
+			radio_3_3.style.background="#ffd3d1";
+			radio_3_3.style.border="2px solid #e70800";
+			break;
+		}
+
+		else {   //ЕСЛИ НЕ ПРАВИЛЬНЫЙ ОТВЕТ   
+			otvet_3.style.background="#ffd3d1";
+			document.getElementById('otp_3').style.opacity="0";
+			document.getElementById('duris-emes_3').style.opacity="1";
+			document.getElementById('prov3').style.background="#ffd3d1";
+			document.getElementById('sled4').style.opacity="1";
+			radio_3_1.style.background="#ffd3d1";
+			radio_3_1.style.border="2px solid #e70800";
+			radio_3_2.style.background="#bff199";
+		    radio_3_2.style.border="2px solid #65ab00";
+			radio_3_3.style.background="#ffd3d1";
+			radio_3_3.style.border="2px solid #e70800";
+		break;}
+	}}
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+
+/* НАЖАТИЕ НА RADIOBUTTON */	
+	radio_3_1.onclick=odin;
+	function odin(){
+		var m =document.getElementsByName('radio_3');
+	for(var i=0; i<m.length;i++){
+		if(m[0].checked){
+			radio_3_1.style.background="#b9e8ff";
+			radio_3_1.style.border="2px solid #38a9f6";
+			radio_3_2.style.background="white";
+		    radio_3_2.style.border="2px solid #dadada";
+			radio_3_3.style.background="white";
+			radio_3_3.style.border="2px solid #dadada";
+            document.getElementById('otp_3').style.background="#65ab00";
+			break;
+		}
+	}
+	}	
+
+	
+	radio_3_2.onclick=dva;
+	function dva(){
+		var m =document.getElementsByName('radio_3');
+	for(var i=0; i<m.length;i++){
+		if(m[1].checked){
+			radio_3_2.style.background="#b9e8ff";
+			radio_3_2.style.border="2px solid #38a9f6";
+			radio_3_1.style.background="white";
+			radio_3_1.style.border="2px solid #dadada";
+			radio_3_3.style.background="white";
+			radio_3_3.style.border="2px solid #dadada";
+			document.getElementById('otp_3').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+
+
+	radio_3_3.onclick=tri;
+	function tri(){
+		var m =document.getElementsByName('radio_3');
+	for(var i=0; i<m.length;i++){
+		if(m[2].checked){
+			radio_3_3.style.background="#b9e8ff";
+			radio_3_3.style.border="2px solid #38a9f6";
+			radio_3_2.style.background="white";
+			 radio_3_2.style.border="2px solid #dadada";
+			radio_3_1.style.background="white";
+			radio_3_1.style.border="2px solid #dadada";
+			document.getElementById('otp_3').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+/* НАЖАТИЕ НА RADIOBUTTON */
+
+</script>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+</div>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+ </div>
+<!-- -----------------УШИНШИ БЕТ-------------------- -->
+
+
+
+<!-- -----------------ТОРТИНШИ БЕТ-------------------- -->
+<div class="page">
+  <p>"Еркек" сөзін таңдаңыз</p>
+  
+  <label id="radio_4_1" onmousedown="woman1.play()" >
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/c5457252450d3000b351cbf87f6b0512">
+     <input type="radio" class="radio_4" id="radio_4_1_1" name="radio_4" value="boy" />
+		<label for="radio_4_1_1">a woman</label>
+  </label>
+
+<label id="radio_4_2" onmousedown="boy1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/3db3eeaf37c7f8e0d80efa94773e3e78">
+     <input type="radio" class="radio_4" id="radio_4_2_1" name="radio_4" value="woman" />
+		<label for="radio_4_2_1">a boy</label>
+  </label>
+
+<label id="radio_4_3" onmousedown="man1.play()">
+  	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/af5dfab3daf7a1626450b4074a0b18b6">
+     <input type="radio" class="radio_4" id="radio_4_3_1" name="radio_4" value="apple" />
+		<label for="radio_4_3_1">a man</label>
+  </label>
+
+
+
+<!-- КНОПКИ RADIOBUTTON -->
+<br>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+<div id="otvet_4">
+
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+<div id="duris_4">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_4">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a man</li></ul>
+
+</div>
+<!-- ПРАИЛЬНЫЙ И НЕПРАВИЛЬНЫЙ ОТВЕТ -->
+
+<!-- КНОПКА BUTTON -->
+<button id="otp_4" >Тексеру</button>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+<script type="text/javascript">
+    var otvet_4=document.getElementById('otvet_4');
+    var radio_4_1=document.getElementById('radio_4_1');
+    var radio_4_2=document.getElementById('radio_4_2');
+    var radio_4_3=document.getElementById('radio_4_3');
+
+
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+	document.getElementById('otp_4').onclick=chekradio;
+	function chekradio() {
+	var m =document.getElementsByName('radio_4');
+	for(var i=0; i<m.length;i++){
+
+		if(m[2].checked){       //ЕСЛИ ПРАВИЛЬНЫЙ ОТВЕТ
+			otvet_4.style.background="#bff199";
+			document.getElementById('otp_4').style.opacity="0";
+			document.getElementById('duris_4').style.opacity="1";
+			document.getElementById('prov4').style.background="#bff199";
+			document.getElementById('sled5').style.opacity="1";
+			u++;
+
+			radio_4_1.style.background="#ffd3d1";
+			radio_4_1.style.border="2px solid #e70800";
+			radio_4_2.style.background="#ffd3d1";
+		    radio_4_2.style.border="2px solid #e70800";
+			radio_4_3.style.background="#bff199";
+			radio_4_3.style.border="2px solid #65ab00";
+			break;
+		}
+		else {   //ЕСЛИ НЕ ПРАВИЛЬНЫЙ ОТВЕТ   
+			otvet_4.style.background="#ffd3d1";
+			document.getElementById('otp_4').style.opacity="0";
+			document.getElementById('duris-emes_4').style.opacity="1";
+			document.getElementById('prov4').style.background="#ffd3d1";
+			document.getElementById('sled5').style.opacity="1";
+			radio_4_1.style.background="#ffd3d1";
+			radio_4_1.style.border="2px solid #e70800";
+			radio_4_2.style.background="#ffd3d1";
+		    radio_4_2.style.border="2px solid #e70800";
+			radio_4_3.style.background="#bff199";
+			radio_4_3.style.border="2px solid #65ab00";
+		break;}
+	}}
+/* НАЖАТИЕ НА КНОПКУ BUTTON */
+
+/* НАЖАТИЕ НА RADIOBUTTON */	
+	radio_4_1.onclick=odin;
+	function odin(){
+		var m =document.getElementsByName('radio_4');
+	for(var i=0; i<m.length;i++){
+		if(m[0].checked){
+			radio_4_1.style.background="#b9e8ff";
+			radio_4_1.style.border="2px solid #38a9f6";
+			radio_4_2.style.background="white";
+		    radio_4_2.style.border="2px solid #dadada";
+			radio_4_3.style.background="white";
+			radio_4_3.style.border="2px solid #dadada";
+            document.getElementById('otp_4').style.background="#65ab00";
+			break;
+		}
+	}
+	}	
+
+	
+	radio_4_2.onclick=dva;
+	function dva(){
+		var m =document.getElementsByName('radio_4');
+	for(var i=0; i<m.length;i++){
+		if(m[1].checked){
+			radio_4_2.style.background="#b9e8ff";
+			radio_4_2.style.border="2px solid #38a9f6";
+			radio_4_1.style.background="white";
+			radio_4_1.style.border="2px solid #dadada";
+			radio_4_3.style.background="white";
+			radio_4_3.style.border="2px solid #dadada";
+			document.getElementById('otp_4').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+
+
+	radio_4_3.onclick=tri;
+	function tri(){
+		var m =document.getElementsByName('radio_4');
+	for(var i=0; i<m.length;i++){
+		if(m[2].checked){
+			radio_4_3.style.background="#b9e8ff";
+			radio_4_3.style.border="2px solid #38a9f6";
+			radio_4_2.style.background="white";
+			 radio_4_2.style.border="2px solid #dadada";
+			radio_4_1.style.background="white";
+			radio_4_1.style.border="2px solid #dadada";
+			document.getElementById('otp_4').style.background="#65ab00";
+			break;
+		}
+	}
+	}
+/* НАЖАТИЕ НА RADIOBUTTON */
+
+</script>
+
+
+<!-- ПРОВЕРКА ОТВЕТОВ -->
+</div>
+<!-- ОТВЕТНЫЙ ПОЛЕ -->
+ </div>
+
+<!-- -----------------ТОРТИНШИ БЕТ-------------------- -->
+
+
+
+<!-- -----------------БЕСИНШИ БЕТ-------------------- -->
+
+ <div class="page">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<p>Тексті аударыңыз:</p>
+<div class="zvuk-soz">
+<div class="zvuk" onmousedown="woman1.play()">
+	<img src="zvuk.gif">
+</div>
+<div class="soz">
+<span>a woman</span> 
+</div>
+</div>
+<div class="text1"><textarea id="text" placeholder="Қазақша жазыңыз"></textarea></div>
+
+
+<div id="otvet_5">
+<button id="otp_5"> тексеру</button>
+<div id="duris_5">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_5">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>әйел</li></ul>
+</div>
+<script type="text/javascript">
+$('#otp_5').on("click",function(){
+
+   var val = $("#text").val();
+   if (val=='әйел'){
+   	$("#otvet_5").css("background","#bff199");
+    $("#duris_5").css("opacity","1");
+    $("#otp_5").css("opacity","0");
+    $("#prov5").css("background","#bff199");
+    $("#sled6").css("opacity","1");
+    u++;
+
+   }
+ else {
+ 	$("#otvet_5").css("background","#ffd3d1");
+    $("#duris-emes_5").css("opacity","1");
+    $("#otp_5").css("opacity","0");
+    $("#prov5").css("background","#ffd3d1");
+    $("#sled6").css("opacity","1");
+ }
+});
+</script>
+</div>
+ </div>
+
+<!-- -----------------БЕСИНШИ БЕТ-------------------- -->
+
+
+
+
+<!-- -----------------АЛТЫНШЫ БЕТ-------------------- -->
+
+
+  <div class="page">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<p>Тексті аударыңыз:</p>
+<div class="zvuk-soz_1">
+<div class="zvuk_1" onmousedown="i_m_a_boy.play()">
+	<img src="zvuk.gif">
+</div>
+<div class="soz_1">
+<span>I am a boy</span> 
+</div>
+</div>
+<div class="text1_1"><textarea id="text_1" placeholder="Қазақша жазыңыз"></textarea></div>
+
+
+<div id="otvet_6">
+<button id="otp_6"> тексеру</button>
+<div id="duris_6">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_6">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>мен ұлмын</li></ul>
+</div>
+<script type="text/javascript">
+$('#otp_6').on("click",function(){
+
+   var val = $("#text_1").val();
+   if (val=='мен ұлмын'){
+   	$("#otvet_6").css("background","#bff199");
+    $("#duris_6").css("opacity","1");
+    $("#otp_6").css("opacity","0");
+     $("#prov6").css("background","#bff199");
+     $("#sled7").css("opacity","1");
+    u++;
+   }
+ else {
+ 	$("#otvet_6").css("background","#ffd3d1");
+    $("#duris-emes_6").css("opacity","1");
+    $("#otp_6").css("opacity","0");
+    $("#prov6").css("background","#ffd3d1");
+    $("#sled7").css("opacity","1");
+ }
+});
+</script>
+</div>
+ </div>
+<!-- -----------------АЛТЫНШЫ БЕТ-------------------- -->
+
+
+
+
+
+<!-- -----------------ЖЕТИНШИ БЕТ-------------------- -->
+<div class="page">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<p>Ағылшынша "қыз" деген сөзді жазыңыз</p>
+<div class="zvuk-soz_2">
+<div class="zvuk_2">
+	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/7003a49b4d5f7dbb7b9e1a80d8057d6d">
+</div>
+<div class="soz_2">
+<textarea id="text_2" placeholder="Ағылшынша жазыңыз"></textarea> 
+</div>
+</div>
+
+
+<div id="otvet_7">
+<button id="otp_7"> тексеру</button>
+<div id="duris_7">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_7">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a girl</li></ul>
+</div>
+<script type="text/javascript">
+$('#otp_7').on("click",function(){
+
+   var val = $("#text_2").val();
+   if (val=='a girl'){
+   	$("#otvet_7").css("background","#bff199");
+    $("#duris_7").css("opacity","1");
+    $("#otp_7").css("opacity","0");
+     $("#prov7").css("background","#bff199");
+     $("#sled8").css("opacity","1");
+     u++;
+   }
+ else {
+ 	$("#otvet_7").css("background","#ffd3d1");
+    $("#duris-emes_7").css("opacity","1");
+    $("#otp_7").css("opacity","0");
+    $("#prov7").css("background","#ffd3d1");
+    $("#sled8").css("opacity","1");
+ }
+});
+</script>
+</div>
+ </div>
+<!-- -----------------ЖЕТИНШИ БЕТ-------------------- -->
+
+
+<!-- -----------------СЕГИЗИНШИ БЕТ-------------------- -->
+
+  <div class="page">
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<p>Ағылшынша "Еркек" сөзін жазыңыз</p>
+<div class="zvuk-soz_3">
+<div class="zvuk_3">
+	<img src="https://d2pur3iezf4d1j.cloudfront.net/images/32c991df35105adf743ee7809a7dffcc">
+</div>
+<div class="soz_3">
+<textarea id="text_3" placeholder="Введите на английском"></textarea> 
+</div>
+</div>
+
+
+<div id="otvet_8">
+<button id="otp_8"> тексеру</button>
+
+<div id="duris_8">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_8">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a man</li></ul>
+</div>
+<script type="text/javascript">
+$('#otp_8').on("click",function(){
+
+   var val = $("#text_3").val();
+   if (val=='a man'){
+   	$("#otvet_8").css("background","#bff199");
+    $("#duris_8").css("opacity","1");
+    $("#otp_8").css("opacity","0");
+     
+     $("#prov8").css("background","#bff199");
+     $("#sled9").css("opacity","1");
+     u++;
+    
+
+   
+   }
+ else {
+ 	$("#otvet_8").css("background","#ffd3d1");
+    $("#duris-emes_8").css("opacity","1");
+    $("#otp_8").css("opacity","0");
+    
+    $("#prov8").css("background","#ffd3d1");
+    $("#sled9").css("opacity","1");
+
+ }
+})
+
+</script>
+</div>
+ </div>
+<!-- -----------------СЕГИЗИНШИ БЕТ-------------------- -->
+
+<!-- -----------------ТОГЫЗЫНШЫ БЕТ-------------------- -->
+<div class="page">
+<p>"Ұл" сөзін ағылшынша айтыңыз</p>
+<button onclick="speech ()" style="width: 200px;height: 200px;border-radius: 50%; outline: none;margin-left: 550px;margin-top: 50px; background: white; "><img src="microphone.svg" style="width: 150px;"></button>
+<div id="otvet_9">
+
+
+<div id="duris_9">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_9">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a boy</li></ul>
+</div>
+
+</div>
+
+<script>
+
+  // Создаем распознаватель
+  var recognizer = new webkitSpeechRecognition();
+
+  // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+  recognizer.interimResults = true;
+
+  // Какой язык будем распознавать?
+  recognizer.lang = 'en-EN';
+
+  // Используем колбек для обработки результатов
+  recognizer.onresult = function (event1) {
+    var resul = event1.results[event1.resultIndex];
+    if (resul.isFinal) {
+      alert('Вы сказали: ' + resul[0].transcript);
+      if(resul[0].transcript=="boy"){
+
+     $("#otvet_9").css("background","#bff199");
+     $("#duris_9").css("opacity","1");
+     $("#prov9").css("background","#bff199");
+     $("#sled10").css("opacity","1");
+     u++;
+        
+      }
+    } else {
+      console.log('Промежуточный результат: ', resul[0].transcript);
+
+   
+    };
+
+        if(resul[0].transcript !="boy"){
+        	 	$("#otvet_9").css("background","#ffd3d1");
+    $("#duris-emes_9").css("opacity","1");
+    
+    
+    $("#prov9").css("background","#ffd3d1");
+    $("#sled10").css("opacity","1");
+        }
+  };
+
+  function speech () {
+    // Начинаем слушать микрофон и распознавать голос
+    recognizer.start();
+  };
+
+
+  </script>
+
+
+
+
+</div>
+<!-- -----------------ТОГЫЗЫНШЫ БЕТ-------------------- -->
+
+<!-- -----------------ОНЫНШЫ БЕТ-------------------- -->
+<div class="page">
+<p>"Еркек" сөзін ағылшынша жазыңыз</p>
+<button onclick="speech1 ()" style="width: 200px;height: 200px;border-radius: 50%; outline: none;margin-left: 550px;margin-top: 50px; background: white; "><img src="microphone.svg" style="width: 150px;"></button>
+
+<div id="otvet_10">
+<button id="otp_9">нәтиеже</button>
+<div id="duris_10">
+<img src="duris12.gif">
+<ul><li>Дұрыс</li></ul>
+</div>
+<div id="duris-emes_10">
+<img src="duris-emes12.gif">
+<ul><li>Дұрыс жауап:<br>a man</li></ul>
+</div>
+
+</div>
+
+<script>
+
+  // Создаем распознаватель
+  var recognizer1 = new webkitSpeechRecognition();
+
+  // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+  recognizer1.interimResults = true;
+
+  // Какой язык будем распознавать?
+  recognizer1.lang = 'en-EN';
+
+  // Используем колбек для обработки результатов
+  recognizer1.onresult = function (event) {
+    var result1 = event.results[event.resultIndex];
+    if (result1.isFinal) {
+      alert('Вы сказали: ' + result1[0].transcript);
+      if(result1[0].transcript=="man"){
+
+     $("#otvet_10").css("background","#bff199");
+     $("#duris_10").css("opacity","1");
+     $("#prov10").css("background","#bff199");
+    
+     $("#otp_9").css("opacity","1");
+     u++;
+        
+      }
+    } else {
+      console.log('Промежуточный результат: ', result1[0].transcript);
+
+   
+    };
+
+        if(result1[0].transcript !="boy"){
+        	 	$("#otvet_10").css("background","#ffd3d1");
+    $("#duris-emes_10").css("opacity","1");
+    
+    $("#otp_9").css("opacity","1");
+    $("#prov10").css("background","#ffd3d1");
+   
+        }
+  };
+
+  function speech1 () {
+    // Начинаем слушать микрофон и распознавать голос
+    recognizer1.start();
+  };
+  $('#otp_9').on("click",function(){
+	document.location="result1.php?id="+u;
+})
+
+  </script>
+
+
+</div>
+<!-- -----------------ОНЫНШЫ БЕТ-------------------- -->
+
+	 
+
+ </div>
+ </div>
+ </div>
+
+ 
+ <div id="controls">
+ <label for="slide1" id="sled1" style="opacity: 0;"></label>
+ <label for="slide2" id="sled2" style="opacity: 0;"></label>
+<label for="slide3" id="sled3" style="opacity: 0;"></label>
+<label for="slide4" id="sled4" style="opacity: 0;"></label>
+<label for="slide5" id="sled5" style="opacity: 0;"></label>
+<label for="slide6" id="sled6" style="opacity: 0;"></label>
+<label for="slide7" id="sled7" style="opacity: 0;"></label>
+<label for="slide8" id="sled8" style="opacity: 0;"></label>
+<label for="slide9" id="sled9" style="opacity: 0;"></label>
+<label for="slide10" id="sled10" style="opacity: 0;"></label>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>
