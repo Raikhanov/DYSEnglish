@@ -33,6 +33,7 @@ app.set('view engine','ejs')
 app.use(express.static('public'));  
 
 
+
 // Express-session
 app.use(session({secret: 'cats'
     ,resave: false,
@@ -42,8 +43,26 @@ app.use(session({secret: 'cats'
 app.use(passport.initialize())
 app.use(passport.session())
 
-//**puchase */
+//**indexing */
+const usersCollection = mongoose.connection.collection("users");
+const purchasesCollection = mongoose.connection.collection("purchases");
 
+
+async function createIndexes() {
+    try {
+        // Индекс на email для быстрого поиска при входе
+        await usersCollection.createIndex({ email: 1 }, { unique: true });
+        console.log("Index created on users.email");
+
+        // Индекс на courseId для поиска купленных курсов
+        await purchasesCollection.createIndex({ courseId: 1 });
+        console.log("Index created on purchases.courseId");
+
+    } catch (error) {
+        console.error("Error creating indexes:", error);
+    }
+}
+createIndexes()
 
 //**QUIZZZ */
 app.use("/quiz", quizRouter); 
