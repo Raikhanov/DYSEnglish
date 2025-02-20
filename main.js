@@ -181,35 +181,33 @@ app.post("/deleteAccount", async (req, res) => {
 // update email
 app.post("/updateEmail", async (req, res) => {
     try {
-        const userId = req.session.user.id; // Получаем ID пользователя из сессии
-        const newEmail = req.body.email;   // Получаем новый email из тела запроса
+        const userId = req.session.user?.id; // Проверяем ID пользователя в сессии
+        const newEmail = req.body.email?.trim(); // Убираем пробелы
 
         if (!userId) {
             return res.status(401).send("Unauthorized: User not logged in.");
         }
-
-        // Проверяем, существует ли уже пользователь с таким email
-        const existingUser = await collection.findOne({ email: newEmail });
-        if (existingUser) {
-            return res.status(400).send("Email already in use by another account.");
-        }
-
-        // Обновляем email в базе данных
-        const result = await collection.updateOne(
-            { _id: userId },         // Условие поиска
-            { $set: { email: newEmail } } // Обновление поля email
+        // Использование findOneAndUpdate вместо findOne + updateOne
+        // Обновляем email, если он не совпадает с уже существующим
+        const updatedUser = await collection.findOneAndUpdate(
+            { _id: new ObjectId(userId), email: { $ne: newEmail } }, // Проверяем email
+            { $set: { email: newEmail } },
+            { returnDocument: "after" } // Вернем обновленный документ
         );
 
-        if (result.modifiedCount === 0) {
-            return res.status(404).send("Failed to update email. User not found.");
+        if (!updatedUser) {
+            return res.status(400).send("Email already in use or user not found.");
         }
+
+        // Обновляем email в сессии
+        req.session.user.email = newEmail;
+
         res.redirect("/profile");
     } catch (error) {
         console.error("Error updating email:", error);
         res.status(500).send("An error occurred.");
     }
 });
-
 
 // Register
 app.post("/register", async(req,res)=>{
